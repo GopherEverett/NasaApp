@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment, Component} from 'react';
+import React, { Fragment, Component } from 'react';
 
 import {
   SafeAreaView,
@@ -15,14 +15,16 @@ import {
   View,
   Text,
   StatusBar,
+  Modal,
   Image,
 } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import axios from 'axios';
 
-import {REACT_APP_API_KEY} from 'react-native-dotenv';
+import { REACT_APP_API_KEY } from 'react-native-dotenv';
+
 
 class App extends Component {
   state = {
@@ -46,7 +48,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar barStyle="light-content" />
         <SafeAreaView>
           <ScrollView
             contentInsetAdjustmentBehavior="automatic"
@@ -61,11 +63,10 @@ class App extends Component {
                     {this.state.astronomy.title}
                   </Text>
                 </View>
-                <View>
+                <View style={styles.ImageContainer}>
                   <Image
                     style={styles.imageStyle}
-                    source={{uri: this.state.astronomy.url}}
-                  />
+                    source={{ uri: this.state.astronomy.hdurl }} />
                 </View>
                 <Text style={styles.sectionDescription}>
                   {this.state.astronomy.explanation}
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   body: {
-    backgroundColor: Colors.white,
+    backgroundColor: 'black',
   },
   sectionContainer: {
     marginTop: 32,
@@ -101,12 +102,12 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
-    color: Colors.black,
+    color: 'white',
   },
   mainTitle: {
     fontSize: 42,
     fontWeight: '800',
-    color: Colors.blue,
+    color: 'white',
   },
   mainTitleContainer: {
     marginTop: 32,
@@ -116,17 +117,23 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-    color: Colors.dark,
+    color: 'white',
   },
   imageStyle: {
     width: 380,
     height: 300,
+    borderRadius: 5,
   },
   copyDate: {
+    color: 'white',
     textAlign: 'center',
   },
   highlight: {
     fontWeight: '700',
+  },
+  ImageContainer: {
+    flex: 1,
+    alignItems: 'center',
   },
   footer: {
     color: Colors.dark,
