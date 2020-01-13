@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Futura',
     textShadowColor: '#c8ebf7',
-    textShadowOffset: {width: -1, height: 1},
+    textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 5,
   },
   mainTitleContainer: {
